@@ -1,97 +1,4 @@
 <?php
-// Trims an image then optionally adds padding around it.
-// $im  = Image link resource
-// $bg  = The background color to trim from the image
-// $pad = Amount of padding to add to the trimmed image
-//        (acts simlar to the "padding" CSS property: "top [right [bottom [left]]]")
-function imagetrim(&$im, $bg, $pad=null, $scale=1, $removeTransp=false){
-
-	// Calculate padding for each side.
-	if (isset($pad)){
-		$pp = explode(' ', $pad);
-		if (isset($pp[3])){
-			$p = array((int) $pp[0], (int) $pp[1], (int) $pp[2], (int) $pp[3]);
-		}else if (isset($pp[2])){
-			$p = array((int) $pp[0], (int) $pp[1], (int) $pp[2], (int) $pp[1]);
-		}else if (isset($pp[1])){
-			$p = array((int) $pp[0], (int) $pp[1], (int) $pp[0], (int) $pp[1]);
-		}else{
-			$p = array_fill(0, 4, (int) $pp[0]);
-		}
-	}else{
-		$p = array_fill(0, 4, 0);
-	}
-
-	// Get the image width and height.
-	$imw = imagesx($im);
-	$imh = imagesy($im);
-
-	// Set the X variables.
-	$xmin = $imw;
-	$xmax = 0;
-
-	// Start scanning for the edges.
-	for ($iy=0; $iy<$imh; $iy++){
-		$first = true;
-		for ($ix=0; $ix<$imw; $ix++){
-			$ndx = imagecolorat($im, $ix, $iy);
-			if ($ndx != $bg){
-				if ($xmin > $ix){
-					$xmin = $ix;
-				}
-				if ($xmax < $ix){
-					$xmax = $ix;
-				}
-				if (!isset($ymin)){
-					$ymin = $iy;
-				}
-				$ymax = $iy;
-				if ($first){
-					$ix = $xmax; $first = false;
-				}
-			}
-		}
-	}
-
-	// The new width and height of the image. (not including padding)
-	$imw = 1+$xmax-$xmin; // Image width in pixels
-	$imh = 1+$ymax-$ymin; // Image height in pixels
-
-	// Make another image to place the trimmed version in. Take into account resizing ratio.
-	$new_width = $imw / $scale;
-	$new_height = $imh / $scale;
-	$im2 = imagecreatetruecolor($new_width+$p[1]+$p[3], $new_height+$p[0]+$p[2]);
-
-	//Make the background of the new image the same as the background of the old one.
-	//Removes transparency replacing it with white.
-	if ($removeTransp) {
-		$bg2 = imagecolorallocate ($im2, 255, 255, 255);
-
-		//Preserves transparency.
-	} else {
-		$bg2 = imagecolorallocatealpha ($im2, ($bg >> 16) & 0xFF, ($bg >> 8) & 0xFF, $bg & 0xFF, ($bg >> 24) & 0xFF);
-		imagealphablending ($im2, false);
-		imagesavealpha ($im2, true);
-	}
-	imagefill($im2, 0, 0, $bg2);
-
-	// Copy it over to the new image. Resizes if ratio > 1.
-	imagecopyresampled ($im2, $im, $p[3], $p[0], $xmin, $ymin, $new_width, $new_height, $imw, $imh);
-
-	// To finish up, we replace the old image which is referenced.
-	$im = $im2;
-}
-
-/* Crops and converts a PNG image to 8-bit colour space
- * Call: pngOptim (sys_get_temp_dir().'/bars.png', 64, 9); */
-function pngOptim ($filePath, $ncolors, $compress, $resize_ratio=1) {
-	$image = imagecreatefrompng ($filePath);
-	$bgColor = imagecolorat ($image, 0, 0);
-	imagetrim ($image, $bgColor, '2', $resize_ratio, true);
-	imagetruecolortopalette ($image, false, $ncolors);
-	imagepng ($image, substr ($filePath, 0, -4) . "2.png", $compress);
-	ImageDestroy ($image);
-}
 
 /* Retrieval of XML file with cache */
 function FN_CacheEventPage($sourceURL, $destinationFile){
@@ -104,18 +11,6 @@ function FN_CacheEventPage($sourceURL, $destinationFile){
 	fclose($fp);
 	$ReturnFileContent = file_get_contents($destinationFile, FILE_USE_INCLUDE_PATH);
 	return $ReturnFileContent;
-}
-
-/* Direct retrieval of XML file */
-function getXml($string) {
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $string);
-	curl_setopt($ch, CURLOPT_HEADER, false);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$xml = curl_exec($ch);
-	curl_close($ch);
-	$xml = new SimpleXMLElement($xml);
-	return $xml;
 }
 
 /* Get human-readable description of data */
