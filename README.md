@@ -44,3 +44,8 @@ script.src = 'http://www.climate.org/co2?callback=fn';
 
 document.getElementsByTagName('head')[0].appendChild(script);
 ```
+
+## Repo files
+- `cache.xml` Sample source XML file retrieved from NOAA.
+- `help.txt` Plain text file with a brief explanation of the service. Used for the `help` endpoint.
+- `index.php` Script for the CO2 service.
