@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>NOAA/ESRL Trends in CO2</title>
+  <link>http://www.esrl.noaa.gov/gmd/ccgg/trends</link>
+  <atom:link href="http://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/rss.xml" rel="self" type="application/rss+xml" />
+  <description>Recent Atmospheric CO2 Values from the NOAA Earth System Research Laboratory</description>
+  <lastBuildDate>Fri, 01 Aug 2014 05:01:27 MDT</lastBuildDate>
+  <language>en</language>
+
+  <item>
+    <title>Monthly CO2 Update for May, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/</link>
+    <guid isPermaLink="false">2014-5</guid>
+    <description>
+      Recent Mauna Loa CO2
+      May 2014:  401.14 ppm.  
+      Recent global CO2
+      May 2014:  398.83 ppm
+    </description>
+    <pubDate>Mon, 07 Jul 2014 09:49:24 MDT</pubDate>
+  </item>
+  <item>
+    <title>Monthly CO2 Update for April, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/</link>
+    <guid isPermaLink="false">2014-4</guid>
+    <description>
+      Recent Mauna Loa CO2
+      April 2014:  401.85 ppm.  
+      Recent global CO2
+      April 2014:  398.87 ppm
+    </description>
+    <pubDate>Thu, 05 Jun 2014 10:48:04 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for July 20, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-7-20</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on July 20, 2014:   398.50 ppm
+      Weekly value from 1 year ago:   396.42 ppm
+      Weekly value from 10 years ago:   376.59 ppm
+    </description>
+    <pubDate>Fri, 01 Aug 2014 05:01:17 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for July 13, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-7-13</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on July 13, 2014:   398.78 ppm
+      Weekly value from 1 year ago:   397.17 ppm
+      Weekly value from 10 years ago:   377.76 ppm
+    </description>
+    <pubDate>Sat, 26 Jul 2014 05:01:19 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for July 6, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-7-6</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on July 6, 2014:   399.83 ppm
+      Weekly value from 1 year ago:   397.69 ppm
+      Weekly value from 10 years ago:   378.33 ppm
+    </description>
+    <pubDate>Sat, 19 Jul 2014 05:00:40 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for June 29, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-6-29</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on June 29, 2014:   400.16 ppm
+      Weekly value from 1 year ago:   398.17 ppm
+      Weekly value from 10 years ago:   379.00 ppm
+    </description>
+    <pubDate>Sat, 12 Jul 2014 05:00:43 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for June 22, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-6-22</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on June 22, 2014:   400.77 ppm
+      Weekly value from 1 year ago:   398.48 ppm
+      Weekly value from 10 years ago:   379.33 ppm
+    </description>
+    <pubDate>Sat, 05 Jul 2014 05:00:38 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for June 15, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-6-15</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on June 15, 2014:   401.00 ppm
+      Weekly value from 1 year ago:   398.21 ppm
+      Weekly value from 10 years ago:   379.56 ppm
+    </description>
+    <pubDate>Sat, 28 Jun 2014 05:00:36 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for June 8, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-6-8</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on June 8, 2014:   401.21 ppm
+      Weekly value from 1 year ago:   398.48 ppm
+      Weekly value from 10 years ago:   379.80 ppm
+    </description>
+    <pubDate>Sat, 21 Jun 2014 05:00:44 MDT</pubDate>
+  </item>
+  <item>
+    <title>Weekly CO2 Update for June 1, 2014</title>
+    <link>http://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html</link>
+    <guid isPermaLink="false">2014-6-1</guid>
+    <description>
+      Up-to-date weekly average CO2 at Mauna Loa 
+      Week starting on June 1, 2014:   401.82 ppm
+      Weekly value from 1 year ago:   399.30 ppm
+      Weekly value from 10 years ago:   379.87 ppm
+    </description>
+    <pubDate>Sat, 14 Jun 2014 05:00:45 MDT</pubDate>
+  </item>
+
+ </channel>
+</rss>
+

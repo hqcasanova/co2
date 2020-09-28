@@ -1,0 +1,42 @@
+HQCASANOVA: CO2 web service 1.5
+
+--------------------------------------------
+Use:  	  get the weekly average 
+	  concentration of CO2 
+	  in the atmosphere
+
+Source:   Earth System Research 
+	  Laboratory (NOAA)
+
+Units:    parts per million (ppm)
+
+Format:   padded JSON
+          plain text
+
+--------------------------------------------
+Object properties/Parameters: 
+   0      latest weekly average 
+          (default output)
+
+   1      daily average 
+	  approx. 1 year ago
+
+   10     daily average 
+	  approx. 10 years ago
+
+   all    human-readable summary of 
+          all of the above 
+
+   delta  estimated percentage change 
+          between daily averages 
+	  (9 years)
+
+   help   this help page
+
+--------------------------------------------
+Examples:
+   www.hqcasanova.com/co2?callback=fn
+   (Padded JSON object with all the above)
+
+   www.hqcasanova.com/co2/1 
+   (daily concentration 365 days ago)
