@@ -29,9 +29,9 @@ What follows is a description of each of the JSON object's properties:
 ## Endpoints
 Endpoints giving plain text responses are also supported. Using the same sample URL as in the previous section, these would be:
 - `http://www.climate.org/co2/[0|1|10]` Default response is the daily average.
-- `http://www.hqcasanova.com/co2/delta`
-- `http://www.hqcasanova.com/co2/all`
-- `http://www.hqcasanova.com/co2/help`
+- `http://www.climate.org/co2/delta`
+- `http://www.climate.org/co2/all`
+- `http://www.climate.org/co2/help`
 
 ## JSONP client code
 ```javascript
@@ -40,7 +40,7 @@ function fn (data) {
 }
 
 var script = document.createElement('script');
-script.src = 'http://www.hqcasanova.com/co2?callback=fn';
+script.src = 'http://www.climate.org/co2?callback=fn';
 
 document.getElementsByTagName('head')[0].appendChild(script);
 ```
