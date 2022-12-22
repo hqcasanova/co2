@@ -42,11 +42,11 @@ function getCache () {
 	
 	// If the cache file isn't there, or is of 0 bytes of size or is too old, build a new one!   
 	if (!file_exists($cacheFileName) or (filesize($cacheFileName) == 0) or (time() - filemtime($cacheFileName) >= $cacheLife)) {
-	   $cacheFileContent = FN_CacheEventPage($remoteURL, $cacheFileName);
+	  $cacheFileContent = FN_CacheEventPage($remoteURL, $cacheFileName);
 
 	// File exists and is still current => use it
 	} else {
-	   $cacheFileContent = file_get_contents($cacheFileName);
+	  $cacheFileContent = file_get_contents($cacheFileName);
 	} 
 	return new SimpleXMLElement($cacheFileContent);	
 }
@@ -62,7 +62,7 @@ $scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
 for ($i= 0; $i < sizeof ($scriptName); $i++) {
 	if ($requestURI[$i] == $scriptName[$i]) {
 		unset($requestURI[$i]);
-    }
+  }
 }
 
 /* There must be at least one command or GET parameter (the JSONP callback) */
@@ -79,54 +79,54 @@ if ($cmd_length != 1) {
 if ($isTEXT || $isJSONP) {
    
 	/* Set content type appropriately */
-   	if ($isTEXT) {
-   		header('Content-Type: text/plain'); 
-   	} else {
-   		header('Content-Type: application/javascript');
-   	    $command[0] = 'callback';
-   	}	
+  if ($isTEXT) {
+    header('Content-Type: text/plain'); 
+  } else {
+    header('Content-Type: application/javascript');
+    $command[0] = 'callback';
+  }	
 
-   	/* Download XML and look for weekly data */
+  /* Download XML and look for weekly data */
 	$xml = getCache() or die("Could not retrieve data");
    
-    /* Get the latest post on weekly data */
-   	$i = 0;  
-   	while (($i < 10) && (false === stripos($xml->channel->item[$i]->title, 'weekly')))
-    	$i++;		 
-   	$full = trim ($xml->channel->item[$i]->description); 
+  /* Get the latest post on weekly data */
+  $i = 0;  
+  while (($i < 10) && (false === stripos($xml->channel->item[$i]->title, 'weekly')))
+    $i++;		 
+  $full = trim ($xml->channel->item[$i]->description); 
 
-   	/* Output appropriate data in plain text format */ 
-   	if ($command[0] == 'all') {
-   	  	echo getHuman($full);	      	  
-   	} else if ($command[0] == 'help') {
+  /* Output appropriate data in plain text format */ 
+  if ($command[0] == 'all') {
+      echo getHuman($full);	      	  
+  } else if ($command[0] == 'help') {
 		echo file_get_contents('help.txt', FILE_USE_INCLUDE_PATH);			 
 	} else {
-	    $full_split = preg_split("/:|(<br>)*\r?\n/i", $full);  
+	  $full_split = preg_split("/:|(<br>)*\r?\n/i", $full);  
 		$co2 = array (
-						0 => trim ($full_split[2]), 
-		            	1 => trim ($full_split[4]), 
-						10 => trim ($full_split[6])
-					 );
+      0 => trim ($full_split[2]), 
+      1 => trim ($full_split[4]), 
+      10 => trim ($full_split[6])
+    );
 		
 		if ($command[0] == 'delta') {
 			echo getDelta($co2);
 		
 		} else if ($command[0] == 'callback') {
-		  	$firstCo2 = explode (' ', $co2[0]);
-		  	$co2[0] = $firstCo2[0];
-		  	$co2[1] = substr ($co2[1], 0, -4);
-		  	$co2[10] = substr ($co2[10], 0, -4);
-		  	$co2['units'] = $firstCo2[1];
-		  	$co2['date'] = date('c', strtotime(trim($xml->channel->item[$i]->pubDate)));
-		  	$co2['delta'] = getDelta($co2, false);
-		  	$co2['all'] = getHuman($full);
-		  	echo $_GET['callback']."(".json_encode($co2).")";	
+      $firstCo2 = explode (' ', $co2[0]);
+      $co2[0] = $firstCo2[0];
+      $co2[1] = substr ($co2[1], 0, -4);
+      $co2[10] = substr ($co2[10], 0, -4);
+      $co2['units'] = $firstCo2[1];
+      $co2['date'] = date('c', strtotime(trim($xml->channel->item[$i]->pubDate)));
+      $co2['delta'] = getDelta($co2, false);
+      $co2['all'] = getHuman($full);
+      echo $_GET['callback']."(".json_encode($co2).")";	
 		
 		} else {
 			if ($command[0] == '') {
-	        	$command[0] = '0';
-	        }
-        	echo $co2[$command[0]];
+	      $command[0] = '0';
+	    }
+      echo $co2[$command[0]];
 		}
 	}   
 } else echo "Invalid parameter";
